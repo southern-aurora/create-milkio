@@ -9,8 +9,8 @@ export const loggerOptions = {
     //
   },
   onInsert: (options) => {
+    // Print the log to the console..
     console[options.loggerLevel](options.description, ...options.params);
-
     return true;
   },
 } satisfies LoggerOptions;
