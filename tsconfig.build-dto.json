@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext"
+    ],
+    "outDir": "./packages/dto/generate",
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "composite": true,
+    "strict": true,
+    "downlevelIteration": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "types": [
+      "bun-types"
+    ]
+  },
+  "include": [
+    // only these files will be packaged as .d.ts files and placed in /packages/dto.
+    "src/apps/**/*.ts",
+    "src/bootstraps/**/*.ts",
+    "generate/**/*.ts",
+    "src/context.ts",
+    "src/fail-code.ts",
+    "src/logger.ts",
+    "src/meta.ts",
+  ],
+}
