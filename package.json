@@ -6,24 +6,19 @@
   "scripts": {
     "start": "bun run ./index.ts",
     "dev": "bun run --inspect --hot ./index.ts",
-    "build": "bun build ./index.ts --compile --minify --outfile ./dist/app --target bun",
-    "test": "./node_modules/milkio/c.ts test",
-    "gen": "./node_modules/milkio/c.ts gen",
-    "build:dto": "./node_modules/milkio/c.ts build:dto",
-    "build:cookbook": "./node_modules/milkio/c.ts build:cookbook"
+    "api-test": "bun run ./index.ts --run-mode:API_TEST",
+    "build": "bun build ./index.ts --compile --minify --outfile ./dist/app --target bun"
   },
   "trustedDependencies": [],
   "dependencies": {
-    "milkio": "^0.0.4",
+    "milkio": "0.0.13",
     "typia": "^5.5.5"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
     "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard-with-typescript": "^43.0.1",
-    "eslint-plugin-import": "^2.29.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   }
 }

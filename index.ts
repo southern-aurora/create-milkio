@@ -1,25 +1,25 @@
-import { createMilkioApp, defineApiTestHandler, defineHttpHandler, configMilkio } from "milkio";
+import { configMilkio } from "./src/config/milkio"
+import { createMilkioApp, defineHttpHandler, envToNumber, executeApiTests } from "milkio"
+import { env, exit } from "node:process"
 
-export const milkio = await createMilkioApp();
+export const milkio = await createMilkioApp()
 
-if (configMilkio.milkioRunMode === "DEFAULT") {
-  // start http server
-  const httpHandler = defineHttpHandler(milkio);
-  // if you are using bun
-  Bun.serve({
-    port: configMilkio.port,
-    fetch(request) {
-      return httpHandler({ request });
-    },
-  });
-}
-
-if (configMilkio.milkioRunMode === "API_TEST") {
-  // decide whether to enter api test mode based on environment
-  await defineApiTestHandler(milkio, configMilkio.milkioTest);
-}
-
-if (configMilkio.milkioRunMode === "MIGRATE") {
-  // (optional) migrate the database structure to the production environment
-  // ..
+switch (configMilkio.runMode) {
+  default: {
+    // start http server
+    const httpHandler = defineHttpHandler(milkio)
+    // if you are using Bun
+    Bun.serve({
+      port: envToNumber(env.PORT, 9000),
+      fetch(request) {
+        return httpHandler({ request })
+      }
+    })
+    break
+  }
+  case "API_TEST": {
+    // decide whether to enter api test mode based on environment
+    await executeApiTests(milkio, configMilkio.apiTestPath)
+    exit(0)
+  }
 }

@@ -1,4 +1,4 @@
-import type { MilkioFailCode } from "milkio";
+import type { MilkioFailCode } from "milkio"
 
 export const failCode = {
   NETWORK_ERROR: () => "Network Error",
@@ -9,4 +9,4 @@ export const failCode = {
   BUSINESS_FAIL: (message: string) => `${message}`,
   // You can add your own mistakes here
   // ...
-} satisfies MilkioFailCode;
+} satisfies MilkioFailCode

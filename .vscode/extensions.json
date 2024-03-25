@@ -2,7 +2,6 @@
   "recommendations": [
     "akirarika.milkio",
     "dbaeumer.vscode-eslint",
-    "tamasfe.even-better-toml",
-    "esbenp.prettier-vscode"
+    "tamasfe.even-better-toml"
   ]
 }

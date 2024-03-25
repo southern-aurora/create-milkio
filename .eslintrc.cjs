@@ -1,12 +1,11 @@
 module.exports = {
-    "root": true,
     "env": {
         "browser": true,
         "es2021": true
     },
     "extends": [
-        "standard-with-typescript",
-        "prettier"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "overrides": [
         {
@@ -21,11 +20,18 @@ module.exports = {
             }
         }
     ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+    "plugins": [
+        "@typescript-eslint"
+    ],
     "rules": {
+        "indent": ["error", 2],
+        "quotes": ["error", "double"],
+        "semi": ["error", "never"],
         "curly": "off",
         "quotes": "off",
         "no-empty": "off",
