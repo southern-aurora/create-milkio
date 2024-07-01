@@ -112,7 +112,17 @@ async function createMilkio() {
 	await writeFile(
 		join(projectTargetPath, ".gitignore"),
 		`# ignore
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# dependencies
 node_modules
+
+# generated files
 /app
 /dist
 /dist-static
@@ -121,6 +131,15 @@ node_modules
 /packages/client/dist
 /packages/client/project
 /.astro
+
+# misc
+.DS_Store
+*.pem
+**/*.zip
+**/*.tar.gz
+**/*.tgz
+**/*.log
+package-lock.json
 `,
 	);
 
